@@ -41,6 +41,7 @@ function App() {
 
   useEffect(() => {
     fetchData()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
   if (error) {
@@ -89,12 +90,9 @@ function App() {
                   {definition.synonyms && (
                     <div className='synonyms'>
                       <p>synonyms:</p>
-                      {definition.synonyms.map((synonym, i) => {
-                        if (i >= 5) return
-                        return (
-                          <li key={i}>{synonym}</li>
-                        )
-                      })}
+                      {definition.synonyms.map((synonym, i) => (
+                      <li key={i}>{synonym}</li>
+                      ))}
                     </div>
                   )}
                 </ul>
