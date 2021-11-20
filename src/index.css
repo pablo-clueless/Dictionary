@@ -1,13 +1,216 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Shippori+Antique&display=swap');
+
+:root{
+  --mont: 'Montserrat', sans-serif;
+  --anti: 'Shippori Antique', sans-serif;
+  --pry: #0b0712;
+  --sec: #9681ea;
+  --alt: #fbf8ff;
+  --error: #e53a18;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  background: var(--pry);
+  color: var(--alt);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--sec);
+  padding: 10px 30px;
+  margin-bottom: 10px;
+  font-family: var(--anti);
+}
+
+header ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+header ul li a {
+  margin: 0 10px;
+  font-size: 1.2rem;
+  color: var(--alt);
+}
+
+header ul li a:hover {
+  color: var(--pry);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30px;
+}
+
+.input {
+  width: 70%;
+  display: flex;
+  background: var(--alt);
+  align-items: center;
+  padding: 10px 5px;
+  border: 1px solid #fff;
+}
+
+.input input {
+  width: 90%;
+  height: 30px;
+  background: transparent;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+}
+
+.input button {
+  width: 10%;
+  height: 30px;
+  background: transparent;
+  color: var(--sec);
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.result {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--mont);
+}
+
+.result .word {
+  color: var(--sec);
+  text-transform: capitalize;
+  font-size: 2rem;
+  margin: 10px auto;
+}
+
+.result .flex {
+  display: flex;
+  align-items: center;
+  padding: 10px 30px;
+  margin: 0 auto;
+  font-size: 1.5rem;
+}
+
+.result .flex p {
+  color: var(--sec);
+  margin-right: 50px;
+}
+
+.result .flex button {
+  background: transparent;
+  color: var(--alt);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.meaning {
+  text-align: left;
+  padding: 0 10px;
+  margin: 10px 0;
+}
+
+.meaning h4{
+  color: var(--sec);
+  text-transform: capitalize;
+  margin: 5px 0;
+}
+
+.synonyms {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px 0;
+}
+
+.synonyms p{
+  text-transform: capitalize;
+}
+
+.synonyms li {
+  list-style: none;
+  margin: 0 5px;
+}
+
+.origin {
+  background: var(--alt);
+  color: var(--sec);
+  padding: 10px 20px;
+  margin: 10px 0;
+}
+
+.loading {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 20px solid var(--sec);
+  border-top-color: var(--alt);
+  position: fixed;
+  top: 35%;
+  animation: spin 1s infinite;
+}
+
+@keyframes spin {
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--mont);
+  position: fixed;
+  top: 35%;
+  color: var(--alt);
+  text-align: center;
+}
+
+.error button {
+  background: var(--error);
+  color: var(--alt);
+  border: 1px solid transparent;
+  font-size: 1.2rem;
+  padding: 10px 30px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.error button:hover {
+  background: transparent;
+  border-color: var(--error);
+  color: var(--error);
+}
+
+@media screen and (max-width: 600px) {
+  .input {
+    width: 100%;
+  }
+
+  .input input, .input button {
+    height: 20px;
+    font-size: 1.2rem;
+  }
+
+  .loading {
+    width: 100px;
+    height: 100px;
+    border: 10px solid var(--sec);
+    border-top-color: var(--alt);
+    top: 45%;
+  }
 }
