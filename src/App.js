@@ -59,7 +59,8 @@ function App() {
     <Header />
     <main>
     <div className='input'>
-      <input
+      <form onSubmit={search}>
+        <input
           type="text"
           placeholder='Search words here'
           value={query}
@@ -67,9 +68,10 @@ function App() {
             setQuery(e.target.value);
           }}
         />
-        <button onClick={search}>
+          <button type='submit' onClick={search}>
           <FaSearch />
         </button>
+      </form>
     </div>
         {data && (
           <div className='result'>
