@@ -5,7 +5,7 @@ import Loading from './comps/Loading'
 import NotFound from './comps/NotFound'
 
 function App() {
-  const [query,setQuery] = useState('renegade')
+  const [query,setQuery] = useState("redundant")
   const [data,setData] = useState([])
   const [error,setError] = useState("")
   const [loading,setLoading] = useState(true)
@@ -60,17 +60,8 @@ function App() {
     <main>
     <div className='input'>
       <form onSubmit={search}>
-        <input
-          type="text"
-          placeholder='Search words here'
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-          }}
-        />
-          <button type='submit' onClick={search}>
+        <input type="text" placeholder='Search words here' value={query} onChange={(e) => { setQuery(e.target.value) }}/>
           <FaSearch />
-        </button>
       </form>
     </div>
         {data && (
